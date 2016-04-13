@@ -1,6 +1,10 @@
 body{
   font-family:helvetica, sans-serif;
   border-width: thin;
+  margin:0;
+}
+.container{
+  margin: 10px;
 }
 .container h2{
   font-weight: lighter;
@@ -14,28 +18,27 @@ body{
 .title1{
   color: red;
   font-weight: normal;
+  margin-left: 10px;
 }
 .nav-container{
   background-color: #000;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  margin-left: -10px;
-  margin-right: -10px;
+
 }
 .ul-container li{
   color: #fff;
   display: inline-block;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding: 20px 20px;
   border-left: #ccc 1px solid;
+  float: left;
 }
-.ul-container a{
+.ul-container li a{
   text-decoration: none;
   color: #fff;
   display: block;
+  transition: 0.3s;
 }
 .ul-container li:first-child{
   border: none;
@@ -46,7 +49,12 @@ body{
   padding: 0;
   /*overflow: hidden;*/
 }
-
+.ul-cotainer li a:hover{
+  background-color: red;
+}
+.ul-container li.icon{
+  display: none; /* Hide the list item that contains the link that should open and close the topnav on small screens */
+}
 .col-2-3{
   float: left;
   width: 66.66%;
@@ -141,14 +149,58 @@ p:first-child::first-letter{
   font-weight: bold;
   margin-right: 10px;
 }
+/* When the screen is less than 680 pixels wide,
+hide all list items, except for the first one ("Home").
+Show the list item that contains the link to open and close the topnav (li.icon) */
+@media screen and (max-width:980px) {
+  .nav-container li:not(:first-child){
+    display: none;
+  }
+  .ul-container li.icon{
+    float: right;
+    display: inline-block;
+  }
+}
+@media screen and (max-width:980px) {
+  .ul-container.responsive{
+    position: relative;;
+  }
 
-@media screen and (min-wid:980px) and (max-width:1200px){
+  .ul-container.responsive li.icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .ul-container li:last-child{
+    border: none;
+  }
+  .ul-container.responsive li{
+    float: none;
+    display: inline;
+  }
+  .ul-container.responsive li a{
+    border: none;
+    margin-left: 30px;
+  }
 
 }
 
-@media screen and (min-width:768px) and (max-width:979px){
 
+/*@media screen and (min-width: 980px) and (max-width: 1199px) {
+  li a{
+    display: block;
+  }
 }
-@media screen and (min-width:500px) and (max-width:767px){
-
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  li a{
+    display: block;
+  }
 }
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  li a{
+    display: block;
+  }
+  article{
+    max-width:300px;
+  }
+}*/
